@@ -4,14 +4,14 @@
 
       <div id="selected-items" class="left-box">
         <div v-if="!selected_items.length" class="name">No items selected</div>
-        <div v-for="item in selected_items" :key="item.name" class="selected items">
+        <div v-for="item in selected_items" :key="item.id" class="selected items">
           <p class="name">{{item.name}}</p>
         </div>
       </div>
 
       <div id="selected-item" class="right-box">
         <div v-if="!selected_item.length" class="name">No item selected</div>
-        <div v-for="item in selected_item" :key="item.name" class="item">
+        <div v-for="item in selected_item" :key="item.id" class="item">
           <p class="selected-name">{{item.name}}</p>
         </div>
       </div>
@@ -19,13 +19,13 @@
 
     <div class="body-box">
       <div id="user-items" class="left-body">
-        <div class="user items"  v-for="item in users_items" :key="item.name" :id="item.id" @click="addUserItems(item.id)">
+        <div class="user items"  v-for="item in users_items" :key="item.id" :id="item.id" @click="addUserItems(item.id)">
           <div class="name">{{item.name}}</div>
         </div>
       </div>
 
       <div id="choose-items" class="right-body">
-        <div class="choose items"  v-for="item in choose_items" :key="item.name" :id="item.id" @click="addChooseItems(item.id)">
+        <div class="choose items"  v-for="item in choose_items" :key="item.id" :id="item.id" @click="addChooseItems(item.id)">
           <div class="name">{{item.name}}</div>
         </div>
       </div>
@@ -34,14 +34,9 @@
 </template>
 <script>
 export default {
-  name: "dropdown",
+  name: "inventory",
   data() {
     return {
-      border: "1px solid gray",
-      config: {
-        disabled: false,
-        length: 8
-      },
       selected_items: [
       ],
       selected_item: [],
